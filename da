@@ -1,0 +1,24 @@
+[1mdiff --git a/src/main/resources/static/index.html b/src/main/resources/static/index.html[m
+[1mindex b5d08d1..90cd688 100644[m
+[1m--- a/src/main/resources/static/index.html[m
+[1m+++ b/src/main/resources/static/index.html[m
+[36m@@ -1 +1,18 @@[m
+[31m-Hello Github Flow!![m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m
+[32m+[m[32m<head>[m
+[32m+[m[32m  <meta charset="utf-8">[m
+[32m+[m[32m  <title>janken</title>[m
+[32m+[m[32m</head>[m
+[32m+[m
+[32m+[m[32m<body>[m
+[32m+[m[32m  <h1>じゃんけん参加ページ</h1>[m
+[32m+[m[32m  名前を以下に入力してください[m
+[32m+[m[32m  <form action="/lec02" method="post">[m
+[32m+[m[32m    <input type="text" name="name" size="16">[m
+[32m+[m[32m    <input type="submit" value="参加">[m
+[32m+[m[32m  </form>[m
+[32m+[m[32m</body>[m
+[32m+[m
+[32m+[m[32m</html>[m
