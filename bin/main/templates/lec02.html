@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>janken</title>
+</head>
+
+<body>
+  <h1>Lec02 GET!</h1>
+  <div th:if="${player}">
+    <p>Hi [[${player}]]</p>
+  </div>
+  <a href="/lec02janken?hand=Gu">ぐー</a>
+  <a href="/lec02janken?hand=Ch">ちょき</a>
+  <a href="/lec02janken?hand=Pa">ぱー</a>
+  <div th:switch=${Hand}>
+    <p th:case="Gu">
+      あなたの手 Gu
+      <br>
+      あいての手 Gu
+      </br>
+      結果 Draw!
+    </p>
+    <p th:case="Ch">
+      あなたの手 Ch
+      <br>
+      あいての手 Gu
+      </br>
+      結果 You lose!
+    </p>
+    <p th:case="Pa">
+      あなたの手 Pa
+      <br>
+      あいての手 Gu
+      </br>
+      結果 You Win!
+    </p>
+  </div>
+</body>
+
+</html>
