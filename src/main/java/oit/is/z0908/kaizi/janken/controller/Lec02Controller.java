@@ -13,6 +13,13 @@ public class Lec02Controller {
   public String lec02() {
     return "lec02.html";
   }
+  
+  @GetMapping("/lec02janken")
+  public String lec02janken(@RequestParam final String hand, final ModelMap model) {
+    final String hand1 = hand;
+    model.addAttribute("Hand", hand1);
+    return "lec02.html";
+  }
 
   @PostMapping("/lec02")
   public String lec02(@RequestParam String name, ModelMap model) {
