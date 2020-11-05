@@ -23,6 +23,8 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
     // $ sshrun htpasswd -nbBC 10 user1 pAssw0rd
+    auth.inMemoryAuthentication().withUser("うえだ")
+        .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
     auth.inMemoryAuthentication().withUser("user1")
         .password("$2y$10$rJ9yqGht2W96MdIJICRQQOuUiYrt2eDokKnDuZZof2DPs83PN6QdC").roles("USER");
     auth.inMemoryAuthentication().withUser("user2")
@@ -62,8 +64,8 @@ public class Lec03AuthConfiguration extends WebSecurityConfigurerAdapter {
     // antMatchers()の他にanyRequest()と書くとあらゆるアクセス先を表現できる
     // authenticated()の代わりにpermitAll()と書くと認証処理が不要であることを示す
     http.authorizeRequests().antMatchers("/lec02/**").authenticated();
-    //http.authorizeRequests().antMatchers("/sample4/**").authenticated();
-    //http.authorizeRequests().antMatchers("/sample5/**").authenticated();
+    // http.authorizeRequests().antMatchers("/sample4/**").authenticated();
+    // http.authorizeRequests().antMatchers("/sample5/**").authenticated();
     // http.authorizeRequests().anyRequest().authenticated();
     /**
      * 以下2行はh2-consoleを利用するための設定なので，開発が完了したらコメントアウトすることが望ましい
