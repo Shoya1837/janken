@@ -1,28 +1,30 @@
 package oit.is.z0908.kaizi.janken.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import oit.is.z0908.kaizi.janken.model.Entry;
+import oit.is.z0908.kaizi.janken.model.Users;
+import oit.is.z0908.kaizi.janken.model.UsersMapper;
 
 @Controller
 public class Lec02Controller {
   @Autowired
-  private Entry entry;
+  UsersMapper usersMapper;
 
   @GetMapping("/lec02")
   public String lec02(ModelMap model, Principal prin) {
     String loginUser = prin.getName();
-    this.entry.addUser(loginUser);
-    model.addAttribute("entry", this.entry);
+    ArrayList<Users> Users = usersMapper.selectAll();
+    model.addAttribute("users", Users);
     model.addAttribute("login_user", loginUser);
     return "lec02.html";
   }
