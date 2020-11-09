@@ -35,6 +35,15 @@ public class Lec02Controller {
     return "lec02.html";
   }
 
+  @GetMapping("/match")
+  public String match(ModelMap model, @RequestParam Integer id, Principal prin) {
+    String loginUser = prin.getName();
+    Users User = usersMapper.selectById(id);
+    model.addAttribute("user", User);
+    model.addAttribute("login_user", loginUser);
+    return "match.html";
+  }
+
   @GetMapping("/lec02janken")
   public String lec02janken(@RequestParam final String hand, final ModelMap model) {
     final String hand1 = hand;
