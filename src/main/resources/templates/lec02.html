@@ -12,10 +12,20 @@
   <div th:if="${login_user}">
     <p>Hi [[${login_user}]]</p>
   </div>
-  <p th:if="${users}">エントリー</p>
-    <ul>
-      <li th:each="user: ${users}">[[${user.name}]]</li>
-    </ul>
+  <h2 th:if="${users}">エントリー</h2>
+  <ul>
+    <li th:each="user: ${users}">[[${user.name}]]</li>
+  </ul>
+  <h2 th:if="${match}">試合結果</h2>
+  <div th:each="match,stat:${match}">
+    <tr>
+      <td>id:[[${match.id}]]</td>
+      <td>user_1:[[${match.user_1}]]</td>
+      <td>user_2:[[${match.user_2}]]</td>
+      <td>user_1の手:[[${match.user_1_hand}]]</td>
+      <td>user_2の手:[[${match.user_2_hand}]]</td>
+    </tr>
+  </div>
   <a href="/lec02janken?hand=Gu">ぐー</a>
   <a href="/lec02janken?hand=Ch">ちょき</a>
   <a href="/lec02janken?hand=Pa">ぱー</a>
