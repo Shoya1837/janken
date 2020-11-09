@@ -14,17 +14,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import oit.is.z0908.kaizi.janken.model.Users;
 import oit.is.z0908.kaizi.janken.model.UsersMapper;
+import oit.is.z0908.kaizi.janken.model.Match;
+import oit.is.z0908.kaizi.janken.model.MatchMapper;
 
 @Controller
 public class Lec02Controller {
   @Autowired
   UsersMapper usersMapper;
+  @Autowired
+  MatchMapper matchMapper;
 
   @GetMapping("/lec02")
   public String lec02(ModelMap model, Principal prin) {
     String loginUser = prin.getName();
     ArrayList<Users> Users = usersMapper.selectAll();
+    ArrayList<Match> Match = matchMapper.selectAll();
     model.addAttribute("users", Users);
+    model.addAttribute("match", Match);
     model.addAttribute("login_user", loginUser);
     return "lec02.html";
   }
