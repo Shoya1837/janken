@@ -10,6 +10,32 @@
   <a href="/logout">ログアウト</a>
   <h1>Match</h1>
   <h2 th:if="${user}">[[${login_user}]] V.S. [[${user.name}]]</h2>
+  <a href="/result?hand=Gu">ぐー</a>
+  <a href="/result?hand=Ch">ちょき</a>
+  <a href="/result?hand=Pa">ぱー</a>
+  <div th:switch=${Hand}>
+    <p th:case="Gu">
+      あなたの手 Gu
+      <br>
+      あいての手 Gu
+      </br>
+      結果 Draw!
+    </p>
+    <p th:case="Ch">
+      あなたの手 Ch
+      <br>
+      あいての手 Gu
+      </br>
+      結果 You lose!
+    </p>
+    <p th:case="Pa">
+      あなたの手 Pa
+      <br>
+      あいての手 Gu
+      </br>
+      結果 You Win!
+    </p>
+  </div>
   <a href="/lec02">もどる</a>
 </body>
 

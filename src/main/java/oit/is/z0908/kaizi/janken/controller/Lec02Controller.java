@@ -44,6 +44,13 @@ public class Lec02Controller {
     return "match.html";
   }
 
+  @GetMapping("/result")
+  public String result(@RequestParam final String hand, final ModelMap model) {
+    final String hand1 = hand;
+    model.addAttribute("Hand", hand1);
+    return "match.html";
+  }
+
   @GetMapping("/lec02janken")
   public String lec02janken(@RequestParam final String hand, final ModelMap model) {
     final String hand1 = hand;
